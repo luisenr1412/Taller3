@@ -8,9 +8,9 @@ import { TareasModule } from './tareas/tareas.module';
   imports: [
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'), // genera el schema automáticamente
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
-      playground: true, // interfaz para probar queries en desarrollo
+      playground: true,
     }),
     TareasModule,
   ],

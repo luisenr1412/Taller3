@@ -9,15 +9,6 @@ import { GqlExecutionContext } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-/**
- * Aspecto transversal encargado de loguear cada operación GraphQL
- * (query o mutation) ejecutada en el servidor, incluyendo su
- * nombre, argumentos recibidos y tiempo de ejecución.
- *
- * Al implementarse como interceptor, esta lógica queda completamente
- * desacoplada de los resolvers y servicios de negocio (Programación
- * Orientada a Aspectos).
- */
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
   private readonly logger = new Logger('GraphQL');
@@ -28,7 +19,7 @@ export class LoggingInterceptor implements NestInterceptor {
     const args = gqlContext.getArgs();
 
     const operacion = info.fieldName;
-    const tipo = info.operation.operation; // 'query' | 'mutation'
+    const tipo = info.operation.operation;
     const inicio = Date.now();
 
     this.logger.log(`→ [${tipo.toUpperCase()}] ${operacion} | args: ${JSON.stringify(args)}`);

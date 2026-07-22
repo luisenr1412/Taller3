@@ -1,8 +1,5 @@
 import { registerEnumType } from '@nestjs/graphql';
 
-/**
- * Representa los posibles estados de una tarea dentro del flujo de trabajo del proyecto.
- */
 export enum EstadoTarea {
   BACKLOG = 'BACKLOG',
   TO_DO = 'TO_DO',

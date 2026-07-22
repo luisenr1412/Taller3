@@ -2,10 +2,6 @@ import { InputType, Field, ID, PartialType } from '@nestjs/graphql';
 import { CrearTareaInput } from './crear-tarea.input';
 import { EstadoTarea } from '../enums/estado-tarea.enum';
 
-/**
- * Datos permitidos para actualizar una tarea existente.
- * Todos los campos de CrearTareaInput se vuelven opcionales.
- */
 @InputType()
 export class ActualizarTareaInput extends PartialType(CrearTareaInput) {
   @Field(() => ID)

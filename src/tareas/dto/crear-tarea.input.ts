@@ -1,8 +1,5 @@
 import { InputType, Field } from '@nestjs/graphql';
 
-/**
- * Datos requeridos para crear una nueva tarea.
- */
 @InputType()
 export class CrearTareaInput {
   @Field()

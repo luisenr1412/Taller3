@@ -1,0 +1,56 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input ActualizarTareaInput {
+  descripcion: String
+  estado: EstadoTarea
+  etiquetas: [String!] = []
+  id: ID!
+  proyecto: String
+  titulo: String
+  usuarioAsignado: String
+}
+
+input CrearTareaInput {
+  descripcion: String!
+  etiquetas: [String!] = []
+  proyecto: String!
+  titulo: String!
+  usuarioAsignado: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+"""Estados posibles de una tarea"""
+enum EstadoTarea {
+  BACKLOG
+  DONE
+  IN_PROGRESS
+  TO_DO
+}
+
+type Mutation {
+  actualizarTarea(datos: ActualizarTareaInput!): Tarea!
+  crearTarea(datos: CrearTareaInput!): Tarea!
+  eliminarTarea(id: ID!): Boolean!
+}
+
+type Query {
+  tarea(id: ID!): Tarea!
+  tareas: [Tarea!]!
+}
+
+type Tarea {
+  descripcion: String!
+  estado: EstadoTarea!
+  etiquetas: [String!]!
+  fechaCreacion: DateTime!
+  id: ID!
+  proyecto: String!
+  titulo: String!
+  usuarioAsignado: String!
+}

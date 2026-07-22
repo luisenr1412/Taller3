@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
+import { TareasModule } from './tareas/tareas.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { join } from 'path';
       sortSchema: true,
       playground: true, // interfaz para probar queries en desarrollo
     }),
+    TareasModule,
   ],
 })
 export class AppModule {}
